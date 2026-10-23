@@ -36,7 +36,7 @@ from datafun_toolkit.logger import get_logger, log_header, log_path
 import matplotlib.pyplot as plt
 import polars as pl
 import requests
-from wordcloud import WordCloud
+from wordcloud import STOPWORDS, WordCloud
 
 print("Imports complete.")
 
@@ -130,31 +130,26 @@ print(text[:1000])
 # Section 5. Clean the Text (split, lowercase, remove punctuation)
 # ============================================================
 
-# Split the text into rough word-like pieces using whitespace.
+# Split page text into words
 words: list[str] = text.split()
-count_of_words: int = len(words)
 
 print("First 20 raw words:")
 print(words[:20])
-print(f"Total raw words: {count_of_words:,}")
+print(f"Total raw words: {len(words):,}")
 
-# Convert all words to lowercase so "Language" and "language"
-# are counted as the same word.
-# Use a list comprehension (concise list to list transformation)
-# that creates a new lowercase list from a list of words.
-words = [word.lower() for word in words]
+# Convert to lowercase, remove punctuation,
+# remove short words, and remove stop words
+stop_words = set(STOPWORDS)
 
-# Strip out (remove) common punctuation from the beginning and end of words.
-# Keep only tokens longer than 3 characters to reduce noise.
-# Again, a list comprehension is great for simple list-to-list transformations.
-clean_words: list[str] = [
-    word.strip(".,:;!?()[]\"'") for word in words if len(word) > 3
+filtered_words: list[str] = [
+    word.strip(".,:;!?()[]\"'").lower()
+    for word in words
+    if len(word) > 3 and word.strip(".,:;!?()[]\"'").lower() not in stop_words
 ]
-count_of_clean_words: int = len(clean_words)
 
-print("First 20 cleaned words:")
-print(clean_words[0:20])
-print(f"Total cleaned words: {count_of_clean_words:,}")
+print("First 20 filtered words:")
+print(filtered_words[:20])
+print(f"Total filtered words: {len(filtered_words):,}")
 
 
 # ============================================================
@@ -167,7 +162,7 @@ print(f"Total cleaned words: {count_of_clean_words:,}")
 # has a more modern API, and the concepts are similar.
 
 # Create a Polars DataFrame (df) with one row per word with a column named "word".
-df: pl.DataFrame = pl.DataFrame({"word": clean_words})
+df: pl.DataFrame = pl.DataFrame({"word": filtered_words})
 
 # Group by word, count occurrences, and sort from most common to least common.
 # This is a powerful pattern for counting and summarizing data in Polars.
@@ -202,7 +197,7 @@ ax = plt.gca()
 # to rotate 45 degrees for better readability,
 ax.tick_params(axis="x", labelrotation=45)
 
-plt.title("Most Frequent Words")
+plt.title("Most Frequent Words (Stop Words Removed)")
 plt.xlabel("Word")
 plt.ylabel("Frequency")
 plt.tight_layout()
