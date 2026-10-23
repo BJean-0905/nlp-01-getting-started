@@ -34,7 +34,8 @@ for analysis.
 No local input dataset is required.
 
 The example uses the Wikipedia article on
-[Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing).
+[Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing)
+and [Ballet](https://en.wikipedia.org/wiki/Ballet).
 
 ## Approach
 
@@ -48,6 +49,7 @@ The example demonstrates:
 - Counting word frequencies using Polars.
 - Visualizing frequent words using Matplotlib.
 - Creating word clouds to explore vocabulary patterns.
+- Adding stop words to remove filler words.
 
 Explore these important project components:
 
@@ -217,3 +219,6 @@ testing, documentation, and code quality.
 - [Professional Python Workflow Guide](https://BJean-0905.github.io/pro-analytics-02/)
 - [Citation](CITATION.cff)
 - [License](LICENSE)
+
+
+[def]: https://en.wikipedia.org/wiki/Ballet
