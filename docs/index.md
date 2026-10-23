@@ -20,7 +20,7 @@ The project uses:
 - BeautifulSoup for parsing HTML and extracting text.
 - Polars for computing word frequencies.
 - Matplotlib for frequency visualizations.
-- WordCloud for visual exploration of vocabulary.
+- WordCloud for visual exploration of vocabulary. Stop words added to remove filler words.
 - Logging for execution records.
 - Ruff, ty, and pytest for code verification.
 - Zensical and GitHub Pages for published documentation.
@@ -52,7 +52,9 @@ Web text contains both useful information and noise
 introduced by document structure and formatting.
 
 Simple text cleaning and frequency analysis
-provide an initial view of a document's vocabulary.
+provide an initial view of a document's vocabulary
+removing stop words, or filler words, to provide
+more concise analysis of more meaningful words.
 
 These techniques establish a foundation
 for later work involving text preprocessing,
