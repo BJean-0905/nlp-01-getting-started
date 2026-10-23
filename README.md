@@ -73,7 +73,7 @@ to set up your machine and project environment.
 From a VS Code terminal in the project root:
 
 ```shell
-uv run python -m nlp.web_words
+uv run python -m nlp.web_words_ballet
 ```
 
 Close each visualization window after viewing
