@@ -32,6 +32,18 @@ and calculates token frequencies.
 The analysis produces a frequency bar chart
 and a word cloud.
 
+## Custom Modifications
+
+Stop words were added to the import wordcloud to remove
+filler words that hold less value in analysis from the
+analysis. Section 5 and six were updated to remove stop
+words from the count of the Top 20.
+The results did reflect more robust and
+valuable language returns to the wordcloud and
+bar chart visuals. The title of the bar chart
+was updated to reflect the appropriate addition
+of stop words removed.
+
 ## Verification
 
 A successful execution displays:
