@@ -103,7 +103,7 @@ and the logging system works.
 
 ### Example Visualization
 
-![Word Cloud Example](docs/images/word_cloud_example.png)
+![Word Cloud](image.png)
 
 ## Verification
 
@@ -115,7 +115,7 @@ uv run python -m pytest
 
 ## Project Documentation
 
-The [hosted documentation site](https://github.com/BJean-0905/nlp-01-getting-started)
+The [hosted documentation site](https://github.com/BJean-0905/nlp-01-getting-started/blob/main/docs/index.md)
 is published using Zensical and GitHub Pages.
 
 The documentation site is used to present the project report,
