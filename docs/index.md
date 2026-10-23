@@ -101,6 +101,7 @@ The results populate a table of the top 20
 highest frequency words, a bar chart of the top
 10 highest frequency words and a word cloud. Ballet
 is the highest frequency word utilized in this search.
+
 ![Top 20 Table](image.png)
 ![Bar Chart](image-3.png)
 ![Word Cloud](image-2.png)
